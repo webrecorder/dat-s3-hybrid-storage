@@ -7,7 +7,11 @@
     "type": "git",
     "url": "git@github.com:webrecorder/dat-s3-hybrid-storage.git"
   },
-  "author": "John Berlin <n0tan3rd@gmail.com>",
+  "author": "Webrecorder",
+  "contributors": [
+    "Ilya Kreymer",
+    "John Berlin"
+  ],
   "license": "MIT",
   "private": false,
   "keywords": [
@@ -21,7 +25,10 @@
   "dependencies": {
     "aws-sdk": "^2.282.1",
     "dat-storage": "^1.0.4",
-    "random-access-s3": "^1.0.0"
+    "debug": "^3.1.0",
+    "eventemitter3": "^3.1.0",
+    "random-access-s3": "^1.0.0",
+    "s3fs": "^2.5.0"
   },
   "devDependencies": {
     "snazzy": "^7.1.1",
@@ -30,5 +37,9 @@
   "scripts": {
     "lint": "standard --verbose | snazzy",
     "format": "standard --fix"
+  },
+  "resolutions": {
+    "aws-sdk": "2.282.1",
+    "readable-stream": "^2.3.6"
   }
 }

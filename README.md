@@ -17,7 +17,11 @@ Via npm `npm install dat-s3-storage`
 ```js
 const DatNode = require('dat-node')
 const S3HybridStorage = require('dat-s3-hybrid-storage')
-const storage = S3HybridStorage.create('local-metadata-dir', 'my-bucket', '/content-in-bucket')
+const storage = S3HybridStorage.create({
+  localDir: 'local-metadata-dir',
+  bucket: 'my-bucket',
+  s3prefix: '/content-in-bucket'
+})
 DatNode(storage, (err, dat) => {
   if (err) throw err
   console.log(`Sharing: ${dat.archive.key.toString('hex')}`)
