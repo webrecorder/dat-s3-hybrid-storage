@@ -47,7 +47,7 @@ const s3_storage = new S3HybridStorage('s3://bucket/path/to/somedata', '/local/d
 const archive = hyperdrive(s3_storage.storage(), opts)
 
 s3_storage.importer().importFiles(archive).then(function() {
-  console.log("Import Complete!)
+  console.log("Import Complete!")
 })
 
 ```
