@@ -43,10 +43,10 @@ The `importFiles` function takes a hyperdrive returns a Promise that will perfor
 Currently, files already existing in the hyperdrive with the same size are skipped, otherwise a file is imported.
 
 ```js
-const storage = S3HybridStorage.create('s3://bucket/path/to/somedata', '/local/data/path/')
-const archive = hyperdrive(storage, opts)
+const s3_storage = new S3HybridStorage('s3://bucket/path/to/somedata', '/local/data/path/');
+const archive = hyperdrive(s3_storage.storage(), opts)
 
-storage.importFiles(archive).then(function() {
+s3_storage.importer().importFiles(archive).then(function() {
   console.log("Import Complete!)
 })
 

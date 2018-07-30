@@ -74,17 +74,12 @@ class S3HybridStorage {
   }
 
   /**
-   * @desc Import files metadata to local metadata store
+   * @desc Create S3Importer for importing files
    * @see {@link S3Importer.importFiles}
-   * @param {Hyperdrive} hyperdrive - The hyperdrive used for importing
-   * @return {Promise<Array<{to: string, err: Error}>>}
+   * @return {S3Importer}
    */
-  getImporter (hyperdrive) {
-    //return this.importer.importFiles(hyperdrive)
-    const importer = new S3Importer(this.bucket, this.prefix, this.s3);
-    return function() {
-      importer.importFiles(hyperdrive);
-    }
+  importer() {
+    return new S3Importer(this.bucket, this.prefix, this.s3);
   }
 
   /**
@@ -96,7 +91,7 @@ class S3HybridStorage {
    */
   static create (s3Url, localDir, s3) {
     const hs = new S3HybridStorage(s3Url, localDir, s3)
-    return hs.provider()
+    return hs.storage()
   }
 
   /**
@@ -110,10 +105,10 @@ class S3HybridStorage {
   }
 
   /**
-   * @desc Returns a custom storage provider that provides metadata for local directory but content data from S3
+   * @desc Returns a custom dat storage provider that provides metadata for local directory but content data from S3
    * @return {{metadata: function(file: string, opts: Object), content: function(file: string, opts: Object, archive: hyperdrive)}} - The hybrid storage provider
    */
-  provider () {
+  storage() {
     return {
       metadata: (file, opts) => this.localStorage.metadata(file, opts),
       content: (file, opts, archive) => {
