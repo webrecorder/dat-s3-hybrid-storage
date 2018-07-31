@@ -12,9 +12,9 @@ An importer class is also provided to initialize a new .dat directly from s3 as 
 
 
 ## Installation
-Via yarn `yarn add dat-s3-storage`
+Via yarn `yarn add dat-s3-hybrid-storage`
 
-Via npm `npm install dat-s3-storage`
+Via npm `npm install dat-s3-hybrid-storage`
 
 
 ## Basic Swarming Example
