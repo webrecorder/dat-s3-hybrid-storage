@@ -31,12 +31,15 @@
     "s3fs": "^2.5.0"
   },
   "devDependencies": {
-    "snazzy": "^7.1.1",
-    "standard": "^11.0.1"
+    "babel-eslint": "^8.2.6",
+    "eslint": "^5.2.0",
+    "eslint-config-prettier": "^2.9.0",
+    "eslint-plugin-prettier": "^2.6.2",
+    "prettier": "^1.14.0"
   },
   "scripts": {
-    "lint": "standard --verbose | snazzy",
-    "format": "standard --fix"
+    "format": "prettier --write 'lib/**/*.js' 'index.js'",
+    "lint": "eslint lib index.js"
   },
   "resolutions": {
     "aws-sdk": "2.282.1",
